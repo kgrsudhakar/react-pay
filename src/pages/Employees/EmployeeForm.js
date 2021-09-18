@@ -4,8 +4,6 @@ import Controls from '../../components/controls/Controls';
 import { useForm, Form } from '../../components/useForm';
 import * as employeeService from '../../services/employeeService';
 
-
-
 const genderItems = [
   { id: 'male', title: 'Male' },
   { id: 'female', title: 'Female' },
@@ -23,8 +21,6 @@ const initialFValues = {
   hireDate: new Date(),
   isPermanent: false,
 };
-
-var Select = require('react-select');
 
 export default function EmployeeForm(props) {
   const { addOrEdit, recordForEdit } = props;
@@ -61,11 +57,6 @@ export default function EmployeeForm(props) {
     }
   };
 
-  var options = [
-    { value: 'one', label: 'One' },
-    { value: 'two', label: 'Two' },
-  ];
-
   useEffect(() => {
     if (recordForEdit != null)
       setValues({
@@ -79,14 +70,14 @@ export default function EmployeeForm(props) {
         <Grid item xs={12}>
           <Controls.Input
             name="fullName"
-            label="Full Name"
+            label="Doc ID"
             size="small"
             value={values.fullName}
             onChange={handleInputChange}
             error={errors.fullName}
           />
           <Controls.Input
-            label="Email"
+            label="Channel"
             name="email"
             size="small"
             value={values.email}
@@ -116,22 +107,23 @@ export default function EmployeeForm(props) {
                         onChange={handleInputChange}
                         items={genderItems}
                     /> */}
-          {/* <Controls.Select
+          <Controls.Select
             name="departmentId"
-            label="Department"
+            label="User Experience"
             size="small"
             value={values.departmentId}
             onChange={handleInputChange}
             options={employeeService.getDepartmentCollection()}
             error={errors.departmentId}
-          /> */}
-          <Select
+          />
+
+          {/* <Select
             name="departmentId"
             value="one"
-            multi={true}
+            multi
             options={options}
             onChange={handleInputChange}
-          />
+          /> */}
           {/* <Controls.DatePicker
             name="hireDate"
             label="Hire Date"
