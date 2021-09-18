@@ -52,6 +52,7 @@ export default function EmployeeForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('test form');
     if (validate()) {
       addOrEdit(values, resetForm);
     }

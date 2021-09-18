@@ -23,7 +23,7 @@ import DirectLinks from './DirectLinks';
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
-    margin: theme.spacing(5),
+    margin: theme.spacing(1),
     padding: theme.spacing(3),
   },
   searchInput: {
@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
 const headCells = [
   { id: 'fullName', label: 'Doc ID' },
   { id: 'email', label: 'Channel' },
-  // { id: 'mobile', label: 'Mobile Number' },
   { id: 'department', label: 'User Experience' },
   { id: 'actions', label: 'Actions', disableSorting: true },
 ];
@@ -130,7 +129,7 @@ export default function Employees() {
         </Toolbar>
         <TblContainer>
           <TblHead />
-          <TableBody>
+          <TableBody id="demo" className="collapse">
             {recordsAfterPagingAndSorting().map((item) => (
               <TableRow key={item.id}>
                 <TableCell>{item.fullName}</TableCell>

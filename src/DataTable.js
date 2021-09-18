@@ -15,6 +15,19 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import {
+  Paper,
+  makeStyles,
+  TableBody,
+  TableRow,
+  TableCell,
+  Toolbar,
+  InputAdornment,
+} from '@material-ui/core';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import $ from 'jquery';
 
 function createData(name, calories) {
   return { name, calories };
@@ -25,6 +38,13 @@ const rows = [
   createData('iphone', 'English(Poland)'),
   createData('paypalbalance', 'Englsih(United States)'),
 ];
+
+const useStyles = makeStyles((theme) => ({
+  pageContent: {
+    margin: theme.spacing(1),
+    padding: theme.spacing(3),
+  },
+}));
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -70,7 +90,12 @@ const card = (
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <TableCell
+                component="th"
+                scope="row"
+                data-toggle="collapse"
+                data-target="#demo"
+              >
                 {row.name}
               </TableCell>
               <TableCell>{row.calories}</TableCell>
@@ -99,16 +124,10 @@ const modal = (
 );
 
 export default function DataTable() {
+  const classes = useStyles();
   return (
-    <Box>
-      <Grid>
-        <Grid item>
-          <Item>{card}</Item>
-        </Grid>
-        {/* <Grid item md={6}>
-          <Item>{modal}</Item>
-        </Grid> */}
-      </Grid>
-    </Box>
+    <>
+      <Paper className={classes.pageContent}>{card}</Paper>
+    </>
   );
 }
