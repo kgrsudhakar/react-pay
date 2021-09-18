@@ -10,7 +10,7 @@ import {
   ThemeProvider,
 } from '@material-ui/core';
 
-import Employees from '../pages/Employees/Employees';
+import Employees from './pages/Employees/Employees';
 
 const theme = createMuiTheme({
   palette: {
