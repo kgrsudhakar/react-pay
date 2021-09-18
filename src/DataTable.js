@@ -100,14 +100,14 @@ const modal = (
 
 export default function DataTable() {
   return (
-    <Box sx={{ display: { xs: 'block', md: 'block' } }}>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid item xs={6}>
+    <Box>
+      <Grid>
+        <Grid item>
           <Item>{card}</Item>
         </Grid>
-        <Grid item md={6}>
+        {/* <Grid item md={6}>
           <Item>{modal}</Item>
-        </Grid>
+        </Grid> */}
       </Grid>
     </Box>
   );

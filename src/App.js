@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import OutlinedCard from './DataTable.js';
+import DataTable from './DataTable.js';
 import Button from '@mui/material/Button';
 import { StyledEngineProvider } from '@mui/material/styles';
 import {
@@ -42,8 +42,10 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
   appMain: {
-    paddingLeft: '320px',
-    width: '100%',
+    display: 'flex',
+    backgroundColor: '#f1f1f1',
+    margin: '0px',
+    padding: '5px',
   },
 });
 
@@ -51,15 +53,14 @@ export default function App() {
   const classes = useStyles();
   return (
     <>
-      <OutlinedCard />
-
-      <Button variant="contained">Hello World</Button>
-
       <ThemeProvider theme={theme}>
-        <Employees />
         <div className={classes.appMain}>
-          {/* <Header /> */}
-          <Employees />
+          <div>
+            <DataTable />
+          </div>
+          <div>
+            <Employees />
+          </div>
         </div>
         <CssBaseline />
       </ThemeProvider>
