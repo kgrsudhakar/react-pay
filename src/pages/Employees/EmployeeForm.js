@@ -67,7 +67,7 @@ export default function EmployeeForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Grid container>
-        <Grid item xs={6}>
+        <Grid item xs={12}>
           <Controls.Input
             name="fullName"
             label="Full Name"
