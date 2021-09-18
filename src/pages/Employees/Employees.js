@@ -36,9 +36,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const headCells = [
-  { id: 'fullName', label: 'Doc ID' },
-  { id: 'email', label: 'Channel' },
-  { id: 'department', label: 'User Experience' },
+  { id: 'fullName', label: 'Employee Name' },
+  { id: 'email', label: 'Email Address (Personal)' },
+  { id: 'mobile', label: 'Mobile Number' },
+  { id: 'department', label: 'Department' },
   { id: 'actions', label: 'Actions', disableSorting: true },
 ];
 
@@ -82,12 +83,14 @@ export default function Employees() {
   };
 
   const addOrEdit = (employee, resetForm) => {
-    if (employee.id === 0) employeeService.insertEmployee(employee);
+    console.log('test service', employee);
+    if (employee.id == 0) employeeService.insertEmployee(employee);
     else employeeService.updateEmployee(employee);
     resetForm();
     setRecordForEdit(null);
     setOpenPopup(false);
     setRecords(employeeService.getAllEmployees());
+    console.log('test service', employee);
   };
 
   // const addOrEdit1 = (employee, resetForm) => {

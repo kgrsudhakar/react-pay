@@ -43,8 +43,7 @@ export default function EmployeeForm(props) {
       ...temp,
     });
 
-    if (fieldValues === values)
-      return Object.values(temp).every((x) => x === '');
+    if (fieldValues == values) return Object.values(temp).every((x) => x == '');
   };
 
   const { values, setValues, errors, setErrors, handleInputChange, resetForm } =
@@ -68,7 +67,7 @@ export default function EmployeeForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Grid container>
-        <Grid item xs={12}>
+        <Grid item xs={6}>
           <Controls.Input
             name="fullName"
             label="Full Name"
@@ -118,17 +117,17 @@ export default function EmployeeForm(props) {
             error={errors.departmentId}
           />
           {/* <Controls.DatePicker
-                        name="hireDate"
-                        label="Hire Date"
-                        value={values.hireDate}
-                        onChange={handleInputChange}
-                    />
-                    <Controls.Checkbox
-                        name="isPermanent"
-                        label="Permanent Employee"
-                        value={values.isPermanent}
-                        onChange={handleInputChange}
-                    /> */}
+            name="hireDate"
+            label="Hire Date"
+            value={values.hireDate}
+            onChange={handleInputChange}
+          /> */}
+          {/* <Controls.Checkbox
+            name="isPermanent"
+            label="Permanent Employee"
+            value={values.isPermanent}
+            onChange={handleInputChange}
+          /> */}
 
           <div>
             <Controls.Button type="submit" text="Submit" />
