@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   newButton: {
     position: 'absolute',
-    right: '10px',
+    right: '1px',
   },
 }));
 
@@ -55,6 +55,8 @@ const headCells = [
 export default function Employees() {
   const classes = useStyles();
   const [recordForEdit, setRecordForEdit] = useState(null);
+  const [deletedRows, setDeletedRows] = useState([]);
+
   // const [recordForEdit1, setRecordForEdit1] = useState(null)
   const [records, setRecords] = useState(employeeService.getAllEmployees());
   const [filterFn, setFilterFn] = useState({
@@ -109,20 +111,30 @@ export default function Employees() {
 
   const removeInPopup = (item) => {
     setRecordForEdit(item);
-    setOpenPopup(true);
+    setOpenPopup(false);
     console.log('remove row');
   };
 
-  // const openInPopup1 = item => {
-  //     setRecordForEdit1(item)
-  //     setOpenPopup1(true)
-  // }
+  const deleteItem = (e) => {
+    setDeletedRows([
+      ...deletedRows,
+      ...records.filter((r) => r.id === e.id),
+    ]);
+  };
 
   return (
     <>
       <Paper className={classes.pageContent}>
         <Toolbar>
           <PageHeader title="Pinned Article" />
+          <Controls.ActionButton
+            variant="outlined"
+            color="secondary"
+            className={classes.newButton}
+            openPopup={openPopup}
+          >
+            <CloseIcon style={{ fontSize: 15 }} />
+          </Controls.ActionButton>
           <Controls.Button
             text="Add New"
             variant="outlined"
@@ -134,11 +146,12 @@ export default function Employees() {
             }}
           />
         </Toolbar>
+
         <TblContainer>
           <TblHead />
           <TableBody>
-            {recordsAfterPagingAndSorting().map((item) => (
-              <TableRow key={item.id}>
+            {recordsAfterPagingAndSorting().map((item, i) => (
+              <TableRow key={`row-${i}`}>
                 <TableCell>{item.fullName}</TableCell>
                 <TableCell>{item.email}</TableCell>
                 <TableCell>{item.department}</TableCell>
@@ -149,15 +162,15 @@ export default function Employees() {
                       openInPopup(item);
                     }}
                   >
-                    <EditOutlinedIcon fontSize="small" />
+                    <EditOutlinedIcon style={{ fontSize: 15 }} />
                   </Controls.ActionButton>
                   <Controls.ActionButton
                     color="secondary"
                     onClick={() => {
-                      removeInPopup(item);
+                      deleteItem();
                     }}
                   >
-                    <CloseIcon fontSize="small" />
+                    <CloseIcon style={{ fontSize: 15 }} />
                   </Controls.ActionButton>
                 </TableCell>
               </TableRow>
