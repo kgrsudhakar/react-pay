@@ -107,6 +107,12 @@ export default function Employees() {
     setOpenPopup(true);
   };
 
+  const removeInPopup = (item) => {
+    setRecordForEdit(item);
+    setOpenPopup(true);
+    console.log('remove row');
+  };
+
   // const openInPopup1 = item => {
   //     setRecordForEdit1(item)
   //     setOpenPopup1(true)
@@ -145,7 +151,12 @@ export default function Employees() {
                   >
                     <EditOutlinedIcon fontSize="small" />
                   </Controls.ActionButton>
-                  <Controls.ActionButton color="secondary">
+                  <Controls.ActionButton
+                    color="secondary"
+                    onClick={() => {
+                      removeInPopup(item);
+                    }}
+                  >
                     <CloseIcon fontSize="small" />
                   </Controls.ActionButton>
                 </TableCell>

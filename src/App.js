@@ -57,12 +57,8 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <div className={classes.appMain}>
-          <div>
-            <DataTable />
-          </div>
-          <div>
-            <Employees />
-          </div>
+          <DataTable />
+          <Employees />
         </div>
         <CssBaseline />
       </ThemeProvider>
