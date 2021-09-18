@@ -4,7 +4,7 @@ import Controls from '../../components/controls/Controls';
 import { useForm, Form } from '../../components/useForm';
 import * as employeeService from '../../services/employeeService';
 
-import 'react-select/dist/css/react-select.css';
+
 
 const genderItems = [
   { id: 'male', title: 'Male' },
