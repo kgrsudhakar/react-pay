@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Table from '@mui/material/Table';
@@ -20,13 +20,10 @@ function createData(name, calories) {
   return { name, calories };
 }
 
-const rowName = '';
-const rowCalories = '';
-
 const rows = [
-  createData('Frozen yoghurt', 159),
-  createData('Ice cream sandwich', 237),
-  createData('Eclair', 262),
+  createData('paypal', 'English'),
+  createData('iphone', 'English(Poland)'),
+  createData('paypalbalance', 'Englsih(United States)'),
 ];
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -47,21 +44,23 @@ const bull = (
 
 function handle(row) {
   console.log('test row click', row);
-
-  const data = {};
-  data = row;
-  rowName = data.name;
-  rowCalories = data.calories;
-  console.log(rowName, rowCalories);
+  //const [rowName, setRowname] = useState('');
+  // const [rowCalories, setRowcalories] = useState('');
+  // const data = {};
+  // data = row;
+  // rowName = data.name;
+  // var rowCalories = data.calories;
+  //console.log(data, rowName, rowCalories);
 }
+
 const card = (
   <React.Fragment>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell>Calories</TableCell>
+            <TableCell>Keyword (Regex)</TableCell>
+            <TableCell>Locale</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -86,12 +85,12 @@ const card = (
 const modal = (
   <React.Fragment>
     <CardContent>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-        {rowName}
-      </Typography>
-      <Typography variant="h5" component="div">
-        {rowCalories}
-      </Typography>
+      <Typography
+        sx={{ fontSize: 14 }}
+        color="text.secondary"
+        gutterBottom
+      ></Typography>
+      <Typography variant="h5" component="div"></Typography>
     </CardContent>
     <CardActions>
       <Button size="small">Add</Button>
