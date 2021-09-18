@@ -36,7 +36,17 @@ function createData(name, calories) {
 const rows = [
   createData('paypal', 'English'),
   createData('iphone', 'English(Poland)'),
-  createData('paypalbalance', 'Englsih(United States)'),
+  createData('paypalbalance', 'Englsih(Russia)'),
+  createData('1512', 'fr_XC)'),
+  createData('1099', 'Englsih(United States)'),
+
+  createData('email', 'fr_XC'),
+
+  createData('declare', 'es_XC'),
+
+  createData('profile', 'Englsih(United States)'),
+
+  createData('admin', 'fr_XC'),
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -90,12 +100,7 @@ const card = (
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell
-                component="th"
-                scope="row"
-                data-toggle="collapse"
-                data-target="#demo"
-              >
+              <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
               <TableCell>{row.calories}</TableCell>

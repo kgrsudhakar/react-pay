@@ -36,10 +36,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const headCells = [
-  { id: 'fullName', label: 'Employee Name' },
-  { id: 'email', label: 'Email Address (Personal)' },
-  { id: 'mobile', label: 'Mobile Number' },
-  { id: 'department', label: 'Department' },
+  { id: 'fullName', label: 'Doc ID' },
+  { id: 'email', label: 'Channel' },
+  { id: 'department', label: 'User Experience' },
   { id: 'actions', label: 'Actions', disableSorting: true },
 ];
 
@@ -90,7 +89,6 @@ export default function Employees() {
     setRecordForEdit(null);
     setOpenPopup(false);
     setRecords(employeeService.getAllEmployees());
-    console.log('test service', employee);
   };
 
   // const addOrEdit1 = (employee, resetForm) => {
@@ -132,12 +130,11 @@ export default function Employees() {
         </Toolbar>
         <TblContainer>
           <TblHead />
-          <TableBody id="demo" className="collapse">
+          <TableBody>
             {recordsAfterPagingAndSorting().map((item) => (
               <TableRow key={item.id}>
                 <TableCell>{item.fullName}</TableCell>
                 <TableCell>{item.email}</TableCell>
-                {/* <TableCell>{item.mobile}</TableCell> */}
                 <TableCell>{item.department}</TableCell>
                 <TableCell>
                   <Controls.ActionButton
@@ -164,60 +161,6 @@ export default function Employees() {
       >
         <EmployeeForm recordForEdit={recordForEdit} addOrEdit={addOrEdit} />
       </Popup>
-
-      {/* Direct Links */}
-      {/* <div>
-            <Paper className={classes.pageContent}>
-                <Toolbar>
-                <PageHeader title="Direct Links" />
-                    
-                    <Controls.Button
-                        text="Add New"
-                        variant="outlined"
-                        startIcon={<AddIcon />}
-                        className={classes.newButton}
-                        onClick={() => { setOpenPopup1(true); setRecordForEdit1(null); }}
-                    />
-                </Toolbar>
-                <TblContainer>
-                    <TblDirectHead />
-                    <TableBody>
-                        {
-                            recordsAfterPagingAndSorting().map(item =>
-                                (<TableRow key={item.id}>
-                                    <TableCell>{item.fullName}</TableCell>
-                                    <TableCell>{item.email}</TableCell>
-                                    <TableCell>{item.mobile}</TableCell>
-                                    <TableCell>{item.mobile}</TableCell>
-                                    <TableCell>{item.department}</TableCell>
-                                    <TableCell>
-                                        <Controls.ActionButton
-                                            color="primary"
-                                            onClick={() => { openInPopup1(item) }}>
-                                            <EditOutlinedIcon fontSize="small" />
-                                        </Controls.ActionButton>
-                                        <Controls.ActionButton
-                                            color="secondary">
-                                            <CloseIcon fontSize="small" />
-                                        </Controls.ActionButton>
-                                    </TableCell>
-                                </TableRow>)
-                            )
-                        }
-                    </TableBody>
-                </TblContainer>
-                
-            </Paper> */}
-      {/* <Popup
-                title="Direct Links"
-                openPopup1={openPopup1}
-                setOpenPopup1={setOpenPopup1}
-            >
-                <DirectLinks
-                    recordForEdit1={recordForEdit1}
-                    addOrEdit1={addOrEdit1} />
-            </Popup> */}
-      {/* </div> */}
     </>
   );
 }

@@ -4,6 +4,7 @@ import DataTable from './DataTable.js';
 import Button from '@mui/material/Button';
 import useLocalStorage from 'react-use-localstorage';
 import { StyledEngineProvider } from '@mui/material/styles';
+import { createTheme } from '@material-ui/core/styles';
 import {
   makeStyles,
   CssBaseline,
@@ -13,7 +14,7 @@ import {
 
 import Employees from './pages/Employees/Employees';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: '#333996',
