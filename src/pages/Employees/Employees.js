@@ -109,16 +109,16 @@ export default function Employees() {
     setOpenPopup(true);
   };
 
-  const removeInPopup = (item) => {
-    setRecordForEdit(item);
-    setOpenPopup(false);
-    console.log('remove row');
-  };
+  // const removeInPopup = (item) => {
+  //   setRecordForEdit(item);
+  //   setOpenPopup(false);
+  //   console.log('remove row');
+  // };
 
   const deleteItem = (e) => {
     setDeletedRows([
       ...deletedRows,
-      ...records.filter((r) => r.id === e.id),
+      ...records.filter((r) => r.id === e.data.id),
     ]);
   };
 
@@ -126,6 +126,18 @@ export default function Employees() {
     <>
       <Paper className={classes.pageContent}>
         <Toolbar>
+          <Controls.Input
+            label="Search Employees"
+            className={classes.searchInput}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Search />
+                </InputAdornment>
+              ),
+            }}
+            onChange={handleSearch}
+          />
           <PageHeader title="Pinned Article" />
           <Controls.ActionButton
             variant="outlined"

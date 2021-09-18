@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import EmployeeForm from './EmployeeForm';
-import PageHeader from '../../components/PageHeader';
-import PeopleOutlineTwoToneIcon from '@material-ui/icons/PeopleOutlineTwoTone';
 import {
   Paper,
   makeStyles,
   TableBody,
   TableRow,
   TableCell,
-  Toolbar,
-  InputAdornment,
 } from '@material-ui/core';
 import useTable from '../../components/useTable';
 import * as employeeService from '../../services/employeeService';
@@ -29,10 +24,6 @@ const useStyles = makeStyles((theme) => ({
   },
   searchInput: {
     width: '75%',
-  },
-  newButton: {
-    position: 'absolute',
-    right: '10px',
   },
 }));
 

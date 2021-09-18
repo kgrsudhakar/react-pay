@@ -6,12 +6,7 @@ import Box from '@mui/material/Box';
 import useLocalStorage from 'react-use-localstorage';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { createTheme } from '@material-ui/core/styles';
-import {
-  makeStyles,
-  CssBaseline,
-  createMuiTheme,
-  ThemeProvider,
-} from '@material-ui/core';
+import { makeStyles, CssBaseline, ThemeProvider } from '@material-ui/core';
 
 import Employees from './pages/Employees/Employees';
 import GridData from './pages/Employees/GridData';
@@ -46,10 +41,10 @@ const theme = createTheme({
 
 const useStyles = makeStyles({
   appMain: {
-    display: 'flex',
     backgroundColor: '#f1f1f1',
     margin: '0px',
     padding: '5px',
+    justify: 'center',
   },
 });
 

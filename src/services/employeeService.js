@@ -43,3 +43,5 @@ export function getAllEmployees() {
     department: departments[x.departmentId - 1].title,
   }));
 }
+
+export function removeEmployeeId() {}
