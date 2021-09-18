@@ -1,7 +1,8 @@
 import React from 'react';
 import './style.css';
-import DataTable from './DataTable.js';
+import oldDataTable from './DataTable.js';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 import useLocalStorage from 'react-use-localstorage';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { createTheme } from '@material-ui/core/styles';
@@ -57,10 +58,17 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
+        {/* <Box sx={{ display: 'block' }}> */}
         <div className={classes.appMain}>
           <GridData />
           <Employees />
         </div>
+        {/* </Box>
+        <Box sx={{ display: 'block' }}>
+          <div className={classes.appMain}>
+            <Employees />
+          </div>
+        </Box> */}
         <CssBaseline />
       </ThemeProvider>
     </>

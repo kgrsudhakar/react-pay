@@ -4,6 +4,8 @@ import Controls from '../../components/controls/Controls';
 import { useForm, Form } from '../../components/useForm';
 import * as employeeService from '../../services/employeeService';
 
+import 'react-select/dist/css/react-select.css';
+
 const genderItems = [
   { id: 'male', title: 'Male' },
   { id: 'female', title: 'Female' },
@@ -21,6 +23,8 @@ const initialFValues = {
   hireDate: new Date(),
   isPermanent: false,
 };
+
+var Select = require('react-select');
 
 export default function EmployeeForm(props) {
   const { addOrEdit, recordForEdit } = props;
@@ -56,6 +60,11 @@ export default function EmployeeForm(props) {
       addOrEdit(values, resetForm);
     }
   };
+
+  var options = [
+    { value: 'one', label: 'One' },
+    { value: 'two', label: 'Two' },
+  ];
 
   useEffect(() => {
     if (recordForEdit != null)
@@ -107,7 +116,7 @@ export default function EmployeeForm(props) {
                         onChange={handleInputChange}
                         items={genderItems}
                     /> */}
-          <Controls.Select
+          {/* <Controls.Select
             name="departmentId"
             label="Department"
             size="small"
@@ -115,6 +124,13 @@ export default function EmployeeForm(props) {
             onChange={handleInputChange}
             options={employeeService.getDepartmentCollection()}
             error={errors.departmentId}
+          /> */}
+          <Select
+            name="departmentId"
+            value="one"
+            multi={true}
+            options={options}
+            onChange={handleInputChange}
           />
           {/* <Controls.DatePicker
             name="hireDate"

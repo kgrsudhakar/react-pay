@@ -20,6 +20,7 @@ import Popup from '../../components/Popup';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import CloseIcon from '@material-ui/icons/Close';
 import DirectLinks from './DirectLinks';
+import Table from '@mui/material/Table';
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -101,27 +102,29 @@ export default function GridData() {
     <>
       <Paper className={classes.pageContent}>
         <TblContainer>
-          <TblHead />
-          <TableBody>
-            {/* {recordsAfterPagingAndSorting().map((item) => (
+          <Table aria-label="collapsible table">
+            <TblHead />
+            <TableBody>
+              {/* {recordsAfterPagingAndSorting().map((item) => (
               <TableRow key={item.id}>
                 <TableCell>{item.keyword}</TableCell>
                 <TableCell>{item.locale}</TableCell>
               </TableRow>
             ))} */}
-            {rows.map((row) => (
-              <TableRow
-                onClick={() => handle(row)}
-                key={row.name}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {row.keyword}
-                </TableCell>
-                <TableCell>{row.locale}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
+              {rows.map((row) => (
+                <TableRow
+                  onClick={() => handle(row)}
+                  key={row.name}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.keyword}
+                  </TableCell>
+                  <TableCell>{row.locale}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
         </TblContainer>
       </Paper>
       {/* <Popup
