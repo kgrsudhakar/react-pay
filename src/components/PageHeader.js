@@ -6,17 +6,17 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#fdfdff',
   },
   pageHeader: {
-    padding: theme.spacing(4),
+    padding: theme.spacing(1),
     display: 'flex',
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(0),
   },
   pageIcon: {
     display: 'inline-block',
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     color: '#3c44b1',
   },
   pageTitle: {
-    paddingLeft: theme.spacing(4),
+    paddingLeft: theme.spacing(0),
     '& .MuiTypography-subtitle2': {
       opacity: '0.6',
     },
@@ -27,15 +27,12 @@ export default function PageHeader(props) {
   const classes = useStyles();
   const { title, subTitle, icon } = props;
   return (
-    <Paper elevation={0} square className={classes.root}>
+    <Paper elevation={0} className={classes.root}>
       <div className={classes.pageHeader}>
-        <Card className={classes.pageIcon}>{icon}</Card>
+        {/* <Card className={classes.pageIcon}>{icon}</Card> */}
         <div className={classes.pageTitle}>
           <Typography variant="h6" component="div">
             {title}
-          </Typography>
-          <Typography variant="subtitle2" component="div">
-            {subTitle}
           </Typography>
         </div>
       </div>

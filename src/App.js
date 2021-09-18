@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 
 import Employees from './pages/Employees/Employees';
+import GridData from './pages/Employees/GridData';
 
 const theme = createTheme({
   palette: {
@@ -57,7 +58,7 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <div className={classes.appMain}>
-          <DataTable />
+          <GridData />
           <Employees />
         </div>
         <CssBaseline />
