@@ -106,11 +106,10 @@ export default function GridData() {
             ))} */}
               {rows.map((row) => (
                 <TableRow
-                  onClick={() => toggleShow(!show)}
+                  onClick={() => handle(row)}
                   key={row.name}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  toggle: {show ? 'show' : 'hide'}
                   <TableCell component="th" scope="row">
                     {row.keyword}
                   </TableCell>
