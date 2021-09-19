@@ -49,6 +49,8 @@ const rows = [
 ];
 
 export default function GridData() {
+  const [show, toggleShow] = React.useState(true);
+
   const classes = useStyles();
   const [recordForEdit, setRecordForEdit] = useState(null);
   const [records, setRecords] = useState(employeeService.getAllEmployees());
@@ -104,10 +106,11 @@ export default function GridData() {
             ))} */}
               {rows.map((row) => (
                 <TableRow
-                  onClick={() => handle(row)}
+                  onClick={() => toggleShow(!show)}
                   key={row.name}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
+                  toggle: {show ? 'show' : 'hide'}
                   <TableCell component="th" scope="row">
                     {row.keyword}
                   </TableCell>
