@@ -41,6 +41,7 @@ const theme = createTheme({
 
 const useStyles = makeStyles({
   appMain: {
+    display: 'flex',
     backgroundColor: '#f1f1f1',
     margin: '0px',
     padding: '5px',

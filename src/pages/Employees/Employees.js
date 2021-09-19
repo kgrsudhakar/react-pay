@@ -126,18 +126,7 @@ export default function Employees() {
     <>
       <Paper className={classes.pageContent}>
         <Toolbar>
-          <Controls.Input
-            label="Search Employees"
-            className={classes.searchInput}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <Search />
-                </InputAdornment>
-              ),
-            }}
-            onChange={handleSearch}
-          />
+          
           <PageHeader title="Pinned Article" />
           <Controls.ActionButton
             variant="outlined"

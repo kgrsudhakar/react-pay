@@ -17,13 +17,23 @@ import CloseIcon from '@material-ui/icons/Close';
 import DirectLinks from './DirectLinks';
 import Table from '@mui/material/Table';
 
+import {
+  Paper,
+  makeStyles,
+  TableBody,
+  TableRow,
+  TableCell,
+  Toolbar,
+  InputAdornment,
+} from '@material-ui/core';
+
 const useStyles = makeStyles((theme) => ({
   pageContent: {
     margin: theme.spacing(1),
     padding: theme.spacing(3),
   },
   searchInput: {
-    width: '75%',
+    width: '100%',
   },
 }));
 
@@ -71,7 +81,7 @@ export default function GridData() {
         if (target.value === '') return items;
         else
           return items.filter((x) =>
-            x.fullName.toLowerCase().includes(target.value)
+            x.keyword.toLowerCase().includes(target.value)
           );
       },
     });
@@ -95,6 +105,21 @@ export default function GridData() {
     <>
       <Paper className={classes.pageContent}>
         <TblContainer>
+          <Controls.Input
+            style={{ fontSize: 15 }}
+            label="Search Employees"
+            className={classes.searchInput}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Search />
+                </InputAdornment>
+              ),
+            }}
+            onChange={handleSearch}
+          />
+          <br />
+          <br />
           <Table aria-label="collapsible table">
             <TblHead />
             <TableBody>
