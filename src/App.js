@@ -1,7 +1,6 @@
-import React {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
-import ReactTable from 'react-table'
-import 'react-table/react-table.css'
+
 import axios from 'axios';
 import oldDataTable from './DataTable.js';
 import Button from '@mui/material/Button';
@@ -42,8 +41,6 @@ const theme = createTheme({
   },
 });
 
-
-
 const useStyles = makeStyles({
   appMain: {
     display: 'flex',
@@ -60,26 +57,31 @@ export default function App() {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    axios.get("https://lq-time-tracking.firebaseio.com/user.json")
-      .then(function(response) {
+    axios
+      .get('https://lq-time-tracking.firebaseio.com/user.json')
+      .then(function (response) {
         setData(response.data);
-      }).catch(function(error) {
-        console.log(error);
       })
+      .catch(function (error) {
+        console.log(error);
+      });
   }, []);
 
-  const columns = [{
-    id: 'Name',
-    Header: 'Name',
-    accessor: data.user
-  }, {
-    Header: 'Date',
-    accessor: 'Date',
-  }, {
-    Header: 'Comment',
-    accessor:'Comment' 
-  }]
-
+  const columns = [
+    {
+      id: 'Name',
+      Header: 'Name',
+      accessor: data.user,
+    },
+    {
+      Header: 'Date',
+      accessor: 'Date',
+    },
+    {
+      Header: 'Comment',
+      accessor: 'Comment',
+    },
+  ];
 
   return (
     <>
@@ -88,11 +90,11 @@ export default function App() {
         <div className={classes.appMain}>
           {/* <GridData />
           <Employees /> */}
-          <ReactTable
+          {/* <ReactTable
     data={...data}
     columns={columns}
     pivotBy={ ['Date', 'Name']}
-  />
+  /> */}
         </div>
         {/* </Box>
         <Box sx={{ display: 'block' }}>
