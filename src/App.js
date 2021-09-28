@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import ReactTable from 'react-table'
-import 'react-table/react-table.css'
+// import ReactTable from 'react-table'
+// import 'react-table/react-table.css'
 import axios from 'axios';
 import oldDataTable from './DataTable.js';
 import Button from '@mui/material/Button';
@@ -52,50 +52,50 @@ const useStyles = makeStyles({
   },
 });
 
+const fetchData = async () => {
+  const res = await fetch('https://swapi.dev/api/people/');
+  const json = await res.json();
+  return json.result;
+};
+
 export default function App() {
   const classes = useStyles();
 
-  const [data, setData] = useState({});
+  // const [data, setData] = useState({});
+
+  // useEffect(() => {
+  //   axios
+  //     .get('https://lq-time-tracking.firebaseio.com/user.json')
+  //     .then(function (response) {
+  //       //const data1 = response.data;
+  //       setData(response.data);
+  //       console.log(response.data);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }, []);
+
+  const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    axios
-      .get('https://lq-time-tracking.firebaseio.com/user.json')
-      .then(function (response) {
-        setData(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    fetchData().then((employees) => {
+      setEmployees(employees);
+    });
   }, []);
-
-  const columns = [
-    {
-      id: 'Name',
-      Header: 'Name',
-      accessor: data.user,
-    },
-    {
-      Header: 'Date',
-      accessor: 'Date',
-    },
-    {
-      Header: 'Comment',
-      accessor: 'Comment',
-    },
-  ];
 
   return (
     <>
       <ThemeProvider theme={theme}>
         {/* <Box sx={{ display: 'block' }}> */}
         <div className={classes.appMain}>
-          <GridData />
-          <Employees />
-          <ReactTable
+          {/* <GridData />
+          <Employees /> */}
+          {/* <ReactTable
     data={...data}
     columns={columns}
     pivotBy={ ['Date', 'Name']}
-  />
+  /> */}
         </div>
         {/* </Box>
         <Box sx={{ display: 'block' }}>
@@ -103,6 +103,11 @@ export default function App() {
             <Employees />
           </div>
         </Box> */}
+        <div>
+          {employees.map((employee) => (
+            <div key={employee.id}>{employee.name}</div>
+          ))}
+        </div>
         <CssBaseline />
       </ThemeProvider>
     </>
