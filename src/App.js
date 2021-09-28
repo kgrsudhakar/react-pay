@@ -88,8 +88,8 @@ export default function App() {
       <ThemeProvider theme={theme}>
         {/* <Box sx={{ display: 'block' }}> */}
         <div className={classes.appMain}>
-          {/* <GridData />
-          <Employees /> */}
+          <GridData />
+          <Employees />
           {/* <ReactTable
     data={...data}
     columns={columns}
