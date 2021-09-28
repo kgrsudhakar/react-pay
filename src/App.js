@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-
+import ReactTable from 'react-table'
+import 'react-table/react-table.css'
 import axios from 'axios';
 import oldDataTable from './DataTable.js';
 import Button from '@mui/material/Button';
@@ -90,11 +91,11 @@ export default function App() {
         <div className={classes.appMain}>
           <GridData />
           <Employees />
-          {/* <ReactTable
+          <ReactTable
     data={...data}
     columns={columns}
     pivotBy={ ['Date', 'Name']}
-  /> */}
+  />
         </div>
         {/* </Box>
         <Box sx={{ display: 'block' }}>
